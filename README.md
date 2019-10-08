@@ -15,8 +15,9 @@ X X   z x (this row will only appear if you get extra cards from wrong guessing 
 
 The game begins after this and one card from the remaining deck (of the 52 cards that are not in the 8 dealt to the players) will be placed in the "main deck" every turn. Note that you will not be able to see any of your cards. They will appear as an X, or as an O if that card is removed (as you will see later). The program will indicate which Player's turn it is and that player can choose from 3 different operations:
 
-       1. If you like the card and want to replace it with one of your cards, press c. This is a good play if you have a low point yielding card, such as A or 2, so you can replace a J with a 2 to get a lower sum total at the end
-       2. If you think you have this card in your set of cards, you can keep both this card and the card from your deck into the discard pile. This is great for you since you have better chance at having a lower point total at the end! Press v if you want to do this, and instructions will follow. NOTE: If you think you have that card in your deck, but actually remember it wrong, you will have to keep both cards!
+   1. If you like the card and want to replace it with one of your cards, press c. This is a good play if you have a low point yielding card, such as A or 2, so you can replace a J with a 2 to get a lower sum total at the end
+   
+   2. If you think you have this card in your set of cards, you can keep both this card and the card from your deck into the discard pile. This is great for you since you have better chance at having a lower point total at the end! Press v if you want to do this, and instructions will follow. NOTE: If you think you have that card in your deck, but actually remember it wrong, you will have to keep both cards!
        
        Example:
        Main Deck: J
@@ -32,7 +33,7 @@ The game begins after this and one card from the remaining deck (of the 52 cards
        X X
        X X
        X
-       3. If you want to discard this card and do nothing with it, press b. This is helpful if you have a card with a high point yield and you cannot discard it as in option 2 above
+   3. If you want to discard this card and do nothing with it, press b. This is helpful if you have a card with a high point yield and you cannot discard it as in option 2 above
        
 # Winning
 The play continues till:
