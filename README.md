@@ -30,7 +30,7 @@ The game begins after this and one card from the remaining deck (of the 52 cards
        Let us say you remember that the lower left card is also a J. So you follow the inputs to assert that the lower left card is a J.
        
        But now it turns out that you remembered wrong and the card was actually an A!. Now you keep the J in your deck too.
-       111
+       ```
        Your New Hand:
        X X
        X X
