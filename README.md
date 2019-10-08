@@ -44,4 +44,9 @@ The play continues till:
 2. You run out of cards in the main deck. Whoever has the lowest point total wins
 3. Someone incorrectly guesses their cards in option 2 above and ends up having more than 6 cards in their hand
 
-Have fun!
+# Running the Game
+1. Download the Memory_4.py file
+2. Open a Terminal
+3. Navigate to the folder you downloaded the python file to
+4. ``` $ python Memory_4.py ```
+5. Enjoy!
