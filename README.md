@@ -30,10 +30,12 @@ The game begins after this and one card from the remaining deck (of the 52 cards
        Let us say you remember that the lower left card is also a J. So you follow the inputs to assert that the lower left card is a J.
        
        But now it turns out that you remembered wrong and the card was actually an A!. Now you keep the J in your deck too.
+       111
        Your New Hand:
        X X
        X X
        X
+       ```
    3. If you want to discard this card and do nothing with it, press b. This is helpful if you have a card with a high point yield and you cannot discard it as in option 2 above
        
 # Winning
