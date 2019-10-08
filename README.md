@@ -3,7 +3,7 @@ A Card game coded in Python that tests your memory!
 Maintained by: Tanmay Agarwal, agarw139@umn.edu
 
 # Objective:
-Have the lowest sum total of cards by the end of the game. Ace = 1, K = 12, Q = 11, J =10 and the numbers stand for their integer values. Suits don't matter in this game and are not included in the programming too, but the deck still consists of 52 cards.
+Have the lowest sum total of cards by the end of the game. Ace = 1, K = 13, Q = 12, J =11 and the numbers stand for their integer values. Suits don't matter in this game and are not included in the programming too, but the deck still consists of 52 cards.
 
 # Game Play
 In the current version, the game is two - player. The deck will be shuffled and each player will be dealt 4 cards, arranged ina 2x2 table. The program will then show you the cards in the lower row for 5 seconds. You must remember your cards, and do not peek at your partners cards!
