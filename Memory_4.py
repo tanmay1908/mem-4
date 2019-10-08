@@ -1,25 +1,40 @@
 import random
 import time
+##########################################################################
+# This code is divided into 3 classes: Player, deck and Game
+# Player - holds the Player name & their hand
+# deck - holds the shuffled card deck. Used to deal cards
+#      - also used when performing different operations during each turn
+# Game - Controls the overall flow of the program. 
+#      - Creates a deck, shuffles it,manages turns and loops till a win
+# FLOW - Game instantiates a deck in its contructor. 
+#        deck instantiates two players in its constructor
+# PLEASE READ THE README FILE FOR INSTRUCTIONS
+###########################################################################
 
+
+### PLAYER CLASS ###########
 class Player:
 
     def __init__(self,Name):
         self.name = Name
         self.hand = []
-
+#### deck CLASS ############
 class deck:
     def __init__(self):
+        # Create a deck
         self.__cards = ['A','A','A','A','K','K','K','K','Q','Q','Q','Q','J','J','J','J']
         j = 16
         num = 10
         while j < 52:
-            self.__cards.append(str(num))
+            self.__cards.append(str(num)) # Add the numbered cards 10 - 2 to the deck
             j = j + 1
             if j % 4 == 0:
                 num = num - 1
 
         i = 0
-        self.__occupied = {}
+        self.__occupied = {} # This function is used in the shuffle function below 
+                             # to keep track of which cards have been shuffled to which position
         while i < 52:
             self.__occupied[i] = False
             i = i + 1
@@ -29,10 +44,11 @@ class deck:
         self.__p2 = Player(raw_input("Enter Name for Player 2:"))
         print("Thank you!")
 
-        self.__turn = True #True when its Player 1's turn, False for Player 2
-        self.__cardCounter = 8
-        self.didWin = False
+        self.__turn = True # True when its Player 1's turn, False for Player 2
+        self.__cardCounter = 8 # Starts at 8 because the first 8 cards are dealt to the players
+        self.didWin = False # False when no one has won, True otherwise
 
+        ### SHUFFLE FUNCTION ###
     def shuffle(self):
         shuffled = False
         new_deck = [None]*52
@@ -48,7 +64,7 @@ class deck:
                         self.__cards = new_deck
                 else:
                     continue
-
+### Deal 4 cards to each player ###
     def deal(self):
         # Deal to Player 1
         print("%s, here are your cards!" % (self.__p1.name))
@@ -62,8 +78,8 @@ class deck:
 
         print("Alright, now %s \'s turn" % self.__p2.name)
         time.sleep(2)
+        
         #Deal to Player 2
-
         print("%s, here are your cards!" % (self.__p2.name))
         self.__p2.hand.extend([self.__cards[4],self.__cards[5],self.__cards[6],self.__cards[7]])
         print("X  X")
@@ -86,6 +102,8 @@ class deck:
         print("")
         self.showHand(p)
         correct_input = False
+        
+        ### Dispatcher helps call the appropriate function corresponding to the user's input ###
         dispatcher = {'c':self.replace, 'v':self.combine, 'b':self.discard}
 
         while(not correct_input):
@@ -94,22 +112,28 @@ class deck:
             if play in dispatcher:
                 correct_input = True
                 dispatcher[play](p)
-                #print("function ended")
+                
             else:
                 print("Invalid entry, please try again")
-                #continue
+                
         time.sleep(1)
         self.clearScreen()
-        #print("here1")
+        
+        # Turn over next card from the main deck
         self.__cardCounter = self.__cardCounter +1
-        #print("here2")
+        
+        # Pass the turn to the next player
         self.__turn = not self.__turn
-        #print("here3")
-
+     
+        # Check if someone won
         if self.win(p):
             self.didWin = True
         else:
             self.didWin = False
+            
+            
+#### Game Play functions corresponding to the three operations ####
+
 
     def replace(self,p):
         card_in_hand = {'q':0,'w':1, 'a':2, 's':3,'z':4, 'x':5}
