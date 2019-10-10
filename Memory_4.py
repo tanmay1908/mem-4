@@ -182,7 +182,9 @@ class deck:
         print("Discarded! Better Luck next time!")
         #self.__cardCounter = self.__cardCounter + 1
 
+###############################################################
 
+## Show a player's hand in terms of Xs and Os ################
     def showHand(self,p):
         i = 0
         str = ""
@@ -196,7 +198,7 @@ class deck:
             if i % 2 == 0 or i == len(p.hand):
                 print(str)
                 str = ""
-
+### Show the players' actual cards in their hands #############
     def reveal(self):
         i = 0
         strn = ""
@@ -216,9 +218,9 @@ class deck:
             if i % 2 == 0 or i == len(self.__p2.hand):
                 print(strn)
                 strn = ""
-
+########## Function which returns True if someone won the game, False otherwise ###########
     def win(self,p):
-        all_empty = True
+        all_empty = True ## If someone was able to discard all their cards using the combine function
         i = 0
         while i < len(p.hand):
             if p.hand[i]!='O':
@@ -229,7 +231,7 @@ class deck:
             print("%s has won the Game!" % p.name)
             return True
 
-        elif self.__cardCounter == 52:
+        elif self.__cardCounter == 52: ## Ran out of cards ==> player with lowest total of cards remaining wins
             self.reveal()
             #print(self.getSum(self.__p1))
             #print(self.getSum(self.__p2))
@@ -242,29 +244,29 @@ class deck:
 
             return True
 
-        elif len(p.hand) > 6:
+        elif len(p.hand) > 6: ##Someone guesses wrong more than 6 times
             print("Too many wrong guesses! You lost the game!")
             return True
 
         else:
             #print("No one has won yet")
-            return False
+            return False # Since no one has won, keep playing !
 
     def getSum(self,p):
         i = 0
-        sum = 0
-        val_dict = {'A':1, 'K':12, 'Q':11, 'J':10, 'O':0}
+        sum = 0 
+        val_dict = {'A':1, 'K':13, 'Q':12, 'J':11, 'O':0} # Numerical values assigned to letter cards
         while i <  len(p.hand):
             if p.hand[i] in val_dict:
-                sum = sum + val_dict[p.hand[i]]
+                sum = sum + val_dict[p.hand[i]] #integer value of number cards added to sum
             else:
                 sum = sum + int(p.hand[i])
             i = i + 1
         return sum
-
+#Function used during debugging to print entire deck #
     def showDeck(self):
         print(self.__cards)
-
+# Clear scren == print enough new lines so that the user can't see previous output #
     def clearScreen(self):
         print("\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n")
 
@@ -278,21 +280,20 @@ class deck:
 class Game:
 
     def __init__(self):
-        CardDeck = deck()
-        CardDeck.shuffle()
-        CardDeck.deal()
-        print(CardDeck.didWin)
-        while not CardDeck.didWin:
+        CardDeck = deck() # Create a deck of cards
+        CardDeck.shuffle() # Shuffle the deck
+        CardDeck.deal() # Deal cards to the players
+        while not CardDeck.didWin: #So long as no one wins, keep playing turns!
             CardDeck.playTurn()
 
 
 #########################
 
 #GAME PLAY#
-new_game = True
+new_game = True # Keeps track of if the user wants to play another game or not
 while new_game:
-    game = Game()
-    correct_key  = False
+    game = Game() # The entire game runs in the constructor of the instance of the Game class
+    correct_key  = False # Keeps track of whether user entered the correct input or not
     while not correct_key:
         input = raw_input("Do you want to exit (e) or play another game (p)?")
         if input == 'e':
